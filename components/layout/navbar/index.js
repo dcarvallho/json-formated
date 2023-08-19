@@ -1,11 +1,13 @@
 import React from "react";
+import style from "../style.module.css";
 
 const Navbar = () => {
   return (
     <>
-      <nav style={{ height: "45px", backgroundColor: "green", color: "white", display: 'flex', justifyContent: 'space-between' }}>
-        <div>Menu</div>
-        <div>Itallo Minati</div>
+      <nav className={style.navbar}>
+        <div className={style.navbarMenu}>Menu</div>
+        <div>jSon FORMATED</div>
+        <div className={style.navbarLoginInfo}>Itallo Minati</div>
       </nav>
     </>
   );

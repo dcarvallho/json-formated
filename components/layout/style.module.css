@@ -3,12 +3,12 @@
 }
 
 .navbar {
-    height: 3.5rem;
+    height: 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: aquamarine;
-    color: black;
+    background-color: #586875;
+    color: #a5c8ca;
 }
 
 .navbarMenu {

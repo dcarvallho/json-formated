@@ -21,7 +21,7 @@ const Navbar = () => {
         <div className={styles.navbarMenu}>Menu</div>
         <div>jSon FORMATED</div>
         <div className={styles.navbarLoginInfo}>
-          <Button onClick={handleClickLogin} />
+          <Button onClick={handleClickLogin} textButton="Login" />
         </div>
       </nav>
       {showSideSheet && (
@@ -34,7 +34,14 @@ const Navbar = () => {
               <br></br>
               <label>Password</label>
               <input></input>
+              <br></br>
+              <Button textButton="Entrar" />
             </form>
+            <footer>
+              <span>
+                É novo por aqui? Cadastre-se já! <a href="">Cadastro</a>
+              </span>
+            </footer>
           </div>
         </CardLogin>
       )}

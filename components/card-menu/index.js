@@ -1,16 +1,17 @@
-import React from 'react'
-import styles from './styles.module.css'
+import React from "react";
+import Button from "../button";
+import style from "./style.module.css";
 
-const Menu = () =>{
-    return(
-        <>
-            <div className={styles.backgroundMenu}>
-                <div className={styles.cardMenu}>
+const CardMenu = ({ children, closeMenu }) => {
+  return (
+    <>
+      <div className={style.backgroundMenu} onClick={closeMenu}>
+        <div className={style.cardMenu}>
+          <main>{children}</main>
+        </div>
+      </div>
+    </>
+  );
+};
 
-                </div>
-            </div>
-        </>
-    )
-}
-
-export default Menu;
+export default CardMenu;

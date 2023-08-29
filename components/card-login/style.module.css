@@ -1,0 +1,50 @@
+.background {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-top: 4rem;
+    /* z-index: 1000; */
+}
+
+.sideSheet {
+    background-color: white;
+    height: 30%;
+    width: 30%;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.sideSheet:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid white;
+    top: -14px;
+    right: 11%;
+}
+
+.loginContent {
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    color: black;
+    font-weight: bold;
+}
+
+.cardContent {
+    text-align: center;
+    font-weight: bold;
+    padding: 1rem;
+}

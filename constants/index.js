@@ -1,0 +1,1 @@
+export const LOGIN_CADASTRO = "Login / Cadastro";

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useReducer, useEffect } from "react";
 import Button from "../../button";
 import CardLogin from "../../card-login";
 import CardMenu from "../../card-menu";
@@ -8,21 +8,41 @@ import { LOGIN_CADASTRO } from "../../../constants";
 import styles from "../style.module.css";
 import ContentMenu from "../../menu-content";
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "ShowSideSheet":
+      return { ...state, showSideSheetLogin: !showSideSheetLogin };
+    case "ShowMenuBar":
+      return { ...state, showMenuBar: !showMenuBar };
+    default:
+      return state;
+  }
+};
+
 const Navbar = () => {
-  const [showSideSheetLogin, setShowSideSheetLogin] = useState(false);
-  const [showMenuBar, setShowMenuBar] = useState(false);
+  const [state, dispatch] = useReducer(reducer, {
+    showSideSheetLogin: false,
+    showMenuBar: false,
+  });
+  // const [showSideSheetLogin, setShowSideSheetLogin] = useState(false);
+  // const [showMenuBar, setShowMenuBar] = useState(false);
 
   useEffect(() => {
-    setShowSideSheetLogin(false);
-    setShowMenuBar(false);
+    if (state.showSideSheetLogin) {
+      dispatch({ type: "ShowSideSheet" });
+    }
+
+    if (state.showMenuBar) {
+      dispatch({ type: "ShowMenuBar" });
+    }
   }, []);
 
   const handleClickLogin = () => {
-    setShowSideSheetLogin(!showSideSheetLogin);
+    dispatch({ type: "ShowSideSheet" });
   };
 
   const handleClickMenu = () => {
-    setShowMenuBar(!showMenuBar);
+    dispatch({ type: "ShowMenuBar" });
   };
 
   return (
@@ -30,7 +50,7 @@ const Navbar = () => {
       <nav className={styles.navbar}>
         <div className={styles.navbarMenu}>
           <Button onClick={handleClickMenu} textButton={"Menu"} />
-          {showMenuBar && (
+          {state.showMenuBar && (
             <CardMenu closeMenu={handleClickMenu}>
               <ContentMenu />
             </CardMenu>
@@ -39,7 +59,7 @@ const Navbar = () => {
         <div>jSon FORMATED</div>
         <div className={styles.navbarLoginInfo}>
           <Button onClick={handleClickLogin} textButton="Login" />
-          {showSideSheetLogin && (
+          {state.showSideSheetLogin && (
             <CardLogin closeLogin={handleClickLogin}>
               <div className={styles.loginContent}>
                 <header className={styles.header}>{LOGIN_CADASTRO}</header>
@@ -48,7 +68,7 @@ const Navbar = () => {
                   <input></input>
                   <br></br>
                   <label>Password</label>
-                  <input type='Password'></input>
+                  <input type="Password"></input>
                   <br></br>
                   <Button textButton="Entrar" />
                 </form>
